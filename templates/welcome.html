@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20 px-4 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl my-8">
+  <div class="max-w-5xl mx-auto text-center">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Simplify Your Event Management</h1>
+    <p class="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">The all-in-one platform for event organizers to streamline check-ins, secure payments, and build thriving communities.</p>
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <a href="{{ url_for('list_events') }}" class="btn bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all">Explore Events</a>
+      <a href="{{ url_for('dashboard') }}" class="btn bg-white text-primary border border-primary px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all">Access Dashboard</a>
+    </div>
+    <div class="text-sm text-gray-600 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+      </svg>
+      <span>Your data is secure and private. Set up shop in 30mins or less</span>
+    </div>
+  </div>
+</section>
+
+<!-- How does PlayfulTrits work? Section (Creative Card Layout) -->
+<section class="py-16 px-4 bg-gray-100 rounded-3xl my-8">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">So, How does PlayfulTrits work?</h2>
+    <div class="grid gap-8 md:grid-cols-5">
+      <!-- Step 1 -->
+      <div class="bg-white p-6 rounded-xl shadow flex flex-col items-center">
+        <div class="w-16 h-16 mb-4 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+          <!-- Icon (Event Creation) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Hosts create an event</h3>
+        <p class="text-gray-600 text-sm">Begin by adding all the details for your upcoming event—title, description, and venue.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-white p-6 rounded-xl shadow flex flex-col items-center">
+        <div class="w-16 h-16 mb-4 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+          <!-- Icon (Settings / Price) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-3.86 0-7 1.79-7 4 0 1.2.74 2.32 2.01 3.22A8.3 8.3 0 0112 16c3.86 0 7-1.79 7-4 0-1.2-.74-2.32-2.01-3.22A8.3 8.3 0 0012 8zm0 0V4m0 0C9.79 4 8 5.79 8 8m4-4c2.21 0 4 1.79 4 4" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Set price & seats</h3>
+        <p class="text-gray-600 text-sm">Choose ticket prices, the number of available seats, and the check-in window for guests.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <!-- Step 3 -->
+        <div class="bg-white p-6 rounded-xl shadow flex flex-col items-center">
+            <div class="w-16 h-16 mb-4 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+            <!-- Icon (Eye / Monitor) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-4.553a1 1 0 00-1.414-1.414L13.586 8.586A2 2 0 0013 10v0a2 2 0 002 2h1a2 2 0 001.414-.586l2.553 2.553a1 1 0 001.414-1.414L18 10h-3z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 12c2.5-4.5 7.5-4.5 10 0s7.5 4.5 10 0" />
+            </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Watch seats fill up</h3>
+            <p class="text-gray-600 text-sm">As guests reserve their seats, track your event’s capacity in real time.</p>
+        </div>
+
+      <!-- Step 4 -->
+      <div class="bg-white p-6 rounded-xl shadow flex flex-col items-center">
+        <div class="w-16 h-16 mb-4 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+          <!-- Icon (Check / Door) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3L22 4M2 12l6 6m-6-6l6-6" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Confirm guests at the door</h3>
+        <p class="text-gray-600 text-sm">Easily verify check-ins using our quick scanning feature or name-based lookups.</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="bg-white p-6 rounded-xl shadow flex flex-col items-center">
+        <div class="w-16 h-16 mb-4 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+          <!-- Icon (Community) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857m-9.288 0A5.002 5.002 0 0112 9c1.657 0 3.156.804 4.112 2.043m-.753-3.043a3 3 0 10-5.718 0" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Have your private community</h3>
+        <p class="text-gray-600 text-sm">Engage your loyal audience, create special events, and foster a thriving community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-16">Everything You Need to Run Successful Events</h2>
+    
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Feature 1 -->
+      <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Saves Hour of Manual Work</h3>
+        <p class="text-gray-600">Eliminate manual processes and reduce wait times with our streamlined digital check-in system. No more clipboard chaos.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Secure Payments</h3>
+        <p class="text-gray-600">Allow guests to reserve and pay for seats in advance, improving cash flow and helping you predict event revenue.</p>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Community Building</h3>
+        <p class="text-gray-600">Identify and reward loyal attendees, track birthdays, and create special themed events to foster a thriving community.</p>
+      </div>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-10 mt-10">
+      <!-- Feature 4 -->
+      <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Data Insights</h3>
+        <p class="text-gray-600">Gain valuable insights into attendance patterns, popular event types, and customer preferences to optimize future events.</p>
+      </div>
+      
+      <!-- Feature 5 -->
+      <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Automated Notifications</h3>
+        <p class="text-gray-600">Send automated reminders, updates, and follow-ups to keep attendees informed and engaged before and after your events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FAQ Section -->
+<section class="py-16 px-4 bg-gray-50">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      <div class="bg-white rounded-lg overflow-hidden shadow">
+        <button class="accordion-header w-full text-left p-4 font-semibold focus:outline-none hover:bg-gray-50 transition-colors flex justify-between items-center">
+          <span>What is PlayfulTrits?</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="accordion-icon h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="accordion-content bg-white px-4 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+          <p class="py-4">PlayfulTrits is a platform designed to streamline event planning and management, especially for small event organizers. It helps automate tasks and reduce manual effort, saving you valuable time and energy.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-lg overflow-hidden shadow">
+        <button class="accordion-header w-full text-left p-4 font-semibold focus:outline-none hover:bg-gray-50 transition-colors flex justify-between items-center">
+          <span>How does PlayfulTrits streamline check-in?</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="accordion-icon h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="accordion-content bg-white px-4 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+          <p class="py-4">PlayfulTrits automates the check-in process using QR codes and an intuitive interface, eliminating manual data entry and reducing wait times.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-lg overflow-hidden shadow">
+        <button class="accordion-header w-full text-left p-4 font-semibold focus:outline-none hover:bg-gray-50 transition-colors flex justify-between items-center">
+          <span>Can guests secure their seats before the event?</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="accordion-icon h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="accordion-content bg-white px-4 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+          <p class="py-4">Yes, guests can reserve their seats ahead of time, ensuring a smooth entry process on the event day.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-lg overflow-hidden shadow">
+        <button class="accordion-header w-full text-left p-4 font-semibold focus:outline-none hover:bg-gray-50 transition-colors flex justify-between items-center">
+          <span>How does PlayfulTrits help predict revenue?</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="accordion-icon h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="accordion-content bg-white px-4 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+          <p class="py-4">By collecting payments before the event and tracking guest data, PlayfulTrits allows organizers to forecast revenue and manage budgets effectively.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-lg overflow-hidden shadow">
+        <button class="accordion-header w-full text-left p-4 font-semibold focus:outline-none hover:bg-gray-50 transition-colors flex justify-between items-center">
+          <span>How does EventMe help build a community?</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="accordion-icon h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="accordion-content bg-white px-4 overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+          <p class="py-4">Beyond manual work in messaging apps, EventMe enables you to know both new and returning guests, so you can serve them better and even organize special themed events for your community (e.g., all guests having a birthday in the same month).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Request Modal (hidden by default) -->
+<div id="demoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg p-8 max-w-md w-full">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="text-xl font-bold">Request a Demo</h3>
+      <button onclick="closeDemoModal()" class="text-gray-400 hover:text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <form id="demoForm" class="space-y-4">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+        <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+      </div>
+      <div>
+        <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company/Organization</label>
+        <input type="text" id="company" name="company" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+      </div>
+      <div>
+        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">How can we help you?</label>
+        <textarea id="message" name="message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+      </div>
+      <div class="pt-2">
+        <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark transition-colors">Submit Request</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+// FAQ Accordion functionality
+document.addEventListener("DOMContentLoaded", function() {
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+  
+  accordionHeaders.forEach(header => {
+    header.addEventListener("click", function() {
+      // Toggle active class
+      this.classList.toggle("active");
+      
+      // Toggle icon rotation
+      const icon = this.querySelector(".accordion-icon");
+      if (this.classList.contains("active")) {
+        icon.classList.add("rotate-180");
+      } else {
+        icon.classList.remove("rotate-180");
+      }
+      
+      // Toggle content visibility
+      const content = this.nextElementSibling;
+      if (this.classList.contains("active")) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = null;
+      }
+      
+      // Close other accordions (optional)
+      accordionHeaders.forEach(otherHeader => {
+        if (otherHeader !== this) {
+          otherHeader.classList.remove("active");
+          otherHeader.querySelector(".accordion-icon").classList.remove("rotate-180");
+          otherHeader.nextElementSibling.style.maxHeight = null;
+        }
+      });
+    });
+  });
+});
+
+// Demo Modal functionality
+function openDemoModal() {
+  document.getElementById("demoModal").classList.remove("hidden");
+  document.body.style.overflow = "hidden"; // Prevent scrolling
+}
+
+function closeDemoModal() {
+  document.getElementById("demoModal").classList.add("hidden");
+  document.body.style.overflow = "auto"; // Re-enable scrolling
+}
+
+// Close modal when clicking outside
+window.addEventListener("click", function(event) {
+  const modal = document.getElementById("demoModal");
+  if (event.target === modal) {
+    closeDemoModal();
+  }
+});
+
+// Demo form submission
+document.getElementById("demoForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  alert("Thank you for your interest! Our team will contact you shortly.");
+  closeDemoModal();
+});
+</script>
+{% endblock %}

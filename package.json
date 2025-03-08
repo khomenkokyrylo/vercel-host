@@ -1,0 +1,17 @@
+{
+    "name": "eventme",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Event management application with Tailwind CSS",
+    "scripts": {
+        "build": "tailwindcss -i ./static/src/main.css -o ./static/css/style.css --minify",
+        "watch": "tailwindcss -i ./static/src/main.css -o ./static/css/style.css --watch",
+        "vercel-build": "npm install && npm run build"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.4.14",
+        "eventme": "file:",
+        "postcss": "^8.4.24",
+        "tailwindcss": "^3.3.2"
+    }
+}

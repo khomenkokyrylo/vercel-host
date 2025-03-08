@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Super Admin Dashboard</h2>
+<h3>All Events</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Event Venue</th>
+            <th>Date</th>
+            <th>Admin ID</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for event in events %}
+        <tr>
+            <td>{{ event.event_venue }}</td>
+            <td>{{ event.event_start_date }}</td>
+            <td>{{ event.admin_id }}</td>
+            <td>{{ 'Active' if event.event_status else 'Inactive' }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-gray-800 bg-gray-50;
+  }
+  
+  h1 {
+    @apply text-3xl font-bold;
+  }
+  
+  h2 {
+    @apply text-2xl font-bold mb-4;
+  }
+  
+  h3 {
+    @apply text-xl font-semibold mb-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-6 py-3 bg-primary text-white font-medium rounded-md transition-colors hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
+  }
+  
+  .btn-block {
+    @apply block w-full mt-4;
+  }
+  
+  .form-input {
+    @apply w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
+  }
+  
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-md mb-6;
+  }
+  
+  .flashes {
+    @apply list-none p-0 mb-6 max-w-lg mx-auto;
+  }
+  
+  .flashes .success {
+    @apply bg-green-100 text-green-800 p-3 rounded-md mb-3;
+  }
+  
+  .flashes .danger {
+    @apply bg-red-100 text-red-800 p-3 rounded-md mb-3;
+  }
+  
+  .flashes .warning {
+    @apply bg-yellow-100 text-yellow-800 p-3 rounded-md mb-3;
+  }
+}

@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold mb-6">Create New Event</h2>
+  
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <form method="POST" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label for="event_title" class="block text-sm font-medium text-gray-700 mb-1">Event Title</label>
+          <input type="text" id="event_title" name="event_title" required 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="event_venue" class="block text-sm font-medium text-gray-700 mb-1">Venue</label>
+          <input type="text" id="event_venue" name="event_venue" required 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="postcode" class="block text-sm font-medium text-gray-700 mb-1">Postcode</label>
+          <input type="text" id="postcode" name="postcode" required 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="event_start_date" class="block text-sm font-medium text-gray-700 mb-1">Event Date</label>
+          <input type="date" id="event_start_date" name="event_start_date" required 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="event_start_time" class="block text-sm font-medium text-gray-700 mb-1">Start Time</label>
+          <input type="time" id="event_start_time" name="event_start_time" required 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="event_end_time" class="block text-sm font-medium text-gray-700 mb-1">End Time</label>
+          <input type="time" id="event_end_time" name="event_end_time" required 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <!-- Required fields that were missing -->
+        <div>
+          <label for="event_checkout_url" class="block text-sm font-medium text-gray-700 mb-1">Checkout URL</label>
+          <input type="url" id="event_checkout_url" name="event_checkout_url" required 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+          <p class="mt-1 text-xs text-gray-500">URL where guests can pay for tickets (required)</p>
+        </div>
+        
+        <div>
+          <label for="event_checkin_time" class="block text-sm font-medium text-gray-700 mb-1">Check-in Time</label>
+          <input type="datetime-local" id="event_checkin_time" name="event_checkin_time" required 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+          <p class="mt-1 text-xs text-gray-500">When guests can start checking in</p>
+        </div>
+        
+        <div>
+          <label for="box_number_range" class="block text-sm font-medium text-gray-700 mb-1">Seats No</label>
+          <input type="text" id="box_number_range" name="box_number_range" required placeholder="e.g., 1-100" 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+          <p class="mt-1 text-xs text-gray-500">Number of seats available for guests check-in</p>
+        </div>
+      </div>
+      
+      <div>
+        <label for="event_description" class="block text-sm font-medium text-gray-700 mb-1">Your Event Description</label>
+        <textarea id="event_description" name="event_description" rows="4" 
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
+      </div>
+      
+      <div>
+        <label for="event_image_video" class="block text-sm font-medium text-gray-700 mb-1">Image Artwork URL</label>
+        <input type="url" id="event_image_video" name="event_image_video" 
+               class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        <p class="mt-1 text-xs text-gray-500">URL to event artwork 848 x 256px size</p>
+      </div>
+      
+      <div>
+        <label for="exception_list" class="block text-sm font-medium text-gray-700 mb-1">Exception List</label>
+        <input type="text" id="exception_list" name="exception_list" placeholder="e.g., email1@example.com, email2@example.com" 
+               class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        <p class="mt-1 text-xs text-gray-500">Comma-separated list of emails for special handling</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <label for="men_price" class="block text-sm font-medium text-gray-700 mb-1">Men Price (£)</label>
+          <input type="number" id="men_price" name="men_price" step="0.01" 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="women_price" class="block text-sm font-medium text-gray-700 mb-1">Women Price (£)</label>
+          <input type="number" id="women_price" name="women_price" step="0.01" 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="couple_mm_price" class="block text-sm font-medium text-gray-700 mb-1">Couple MM Price (£)</label>
+          <input type="number" id="couple_mm_price" name="couple_mm_price" step="0.01" 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="couple_ff_price" class="block text-sm font-medium text-gray-700 mb-1">Couple FF Price (£)</label>
+          <input type="number" id="couple_ff_price" name="couple_ff_price" step="0.01" 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="tv_ts_single_price" class="block text-sm font-medium text-gray-700 mb-1">TV/TS Single Price (£)</label>
+          <input type="number" id="tv_ts_single_price" name="tv_ts_single_price" step="0.01" 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+        
+        <div>
+          <label for="tv_ts_married_price" class="block text-sm font-medium text-gray-700 mb-1">TV/TS Married Price (£)</label>
+          <input type="number" id="tv_ts_married_price" name="tv_ts_married_price" step="0.01" 
+                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+        </div>
+      </div>
+      
+      <div class="flex items-center">
+        <input type="checkbox" id="event_status" name="event_status" value="true" checked 
+               class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+        <label for="event_status" class="ml-2 block text-sm text-gray-900">
+          Active Event
+        </label>
+      </div>
+      
+      <div class="flex items-center">
+        <input type="checkbox" id="event_page_status" name="event_page_status" value="true" checked 
+               class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+        <label for="event_page_status" class="ml-2 block text-sm text-gray-900">
+          Show on Events Page
+        </label>
+      </div>
+      
+      <div>
+        <button type="submit" 
+                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+          Create Your Event
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

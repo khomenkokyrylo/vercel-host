@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-4xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-8">Your Upcoming Events</h2>
+  
+  {% if events %}
+    <div class="space-y-6">
+      {% for event in events %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">{{ event.event_title }}</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <p class="mb-1 flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {{ event.event_start_date|human_date }}
+                </p>
+                <p class="mb-1 flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {{ event.event_start_time|human_time }} - {{ event.event_end_time|human_time }}
+                </p>
+              </div>
+              <div>
+                <p class="mb-1 flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {{ event.event_venue }}, {{ event.postcode }}
+                </p>
+                <p class="mb-1 flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  Hosted by: {{ event.event_user.full_name if event.event_user and event.event_user.full_name else "Unknown Host" }}
+                </p>
+              </div>
+            </div>
+            
+            {% if event.event_image_video %}
+              <div class="mb-4 rounded-md overflow-hidden">
+                <img src="{{ event.event_image_video }}" alt="{{ event.event_title }}" class="w-full h-auto object-cover max-h-64">
+              </div>
+            {% endif %}
+            
+            <p class="text-gray-600 mb-4">
+              {% if event.event_description %}
+                {% if event.event_description|length > 150 %}
+                  {{ event.event_description[:150] }}... <a href="{{ url_for('public_view_event', event_id=event.id) }}" class="text-primary hover:underline">See more</a>
+                {% else %}
+                  {{ event.event_description }}
+                {% endif %}
+              {% else %}
+                No description available.
+              {% endif %}
+            </p>
+            
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-gray-700 mb-2">Prices:</h4>
+              <div class="flex flex-wrap gap-2">
+                {% if event.men_price %}
+                  <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Men: £{{ event.men_price }}</span>
+                {% endif %}
+                {% if event.women_price %}
+                  <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Women: £{{ event.women_price }}</span>
+                {% endif %}
+                {% if event.couple_mm_price %}
+                  <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Couple (MM): £{{ event.couple_mm_price }}</span>
+                {% endif %}
+                {% if event.couple_ff_price %}
+                  <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">Couple (FF): £{{ event.couple_ff_price }}</span>
+                {% endif %}
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-3">
+              <a href="{{ url_for('event_checkin', event_id=event.id) }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                Check In
+              </a>
+              <a href="{{ url_for('public_view_event', event_id=event.id) }}" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                View Details
+              </a>
+              <a href="{{ event.event_checkout_url }}" target="_blank" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                Secure Seat
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if total_pages > 1 %}
+      <div class="flex justify-center space-x-1 mt-8">
+        {% if page > 1 %}
+          <a href="{{ url_for('list_events', page=page-1) }}" class="px-4 py-2 text-gray-500 bg-white rounded-md hover:bg-gray-100">
+            Previous
+          </a>
+        {% endif %}
+        
+        {% for p in range(1, total_pages + 1) %}
+          <a href="{{ url_for('list_events', page=p) }}" class="px-4 py-2 {% if p == page %}text-white bg-primary{% else %}text-gray-500 bg-white hover:bg-gray-100{% endif %} rounded-md">
+            {{ p }}
+          </a>
+        {% endfor %}
+        
+        {% if page < total_pages %}
+          <a href="{{ url_for('list_events', page=page+1) }}" class="px-4 py-2 text-gray-500 bg-white rounded-md hover:bg-gray-100">
+            Next
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="text-center py-12">
+      <p class="text-xl text-gray-600 mb-4">No events available at the moment.</p>
+      <p class="text-gray-500">Please check back later for upcoming events.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

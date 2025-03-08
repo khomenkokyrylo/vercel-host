@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-2xl mx-auto">
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-bold text-center mb-6">Check In for {{ event.event_title }}</h2>
+    
+    <div class="mb-6">
+      <p class="mb-2"><strong class="font-medium">Date:</strong> {{ event.event_start_date|human_date }}</p>
+      <p class="mb-2"><strong class="font-medium">Time:</strong> {{ event.event_start_time|human_time }}</p>
+      <p class="mb-2"><strong class="font-medium">Venue:</strong> {{ event.event_venue }}</p>
+      <p class="mb-4"><strong class="font-medium">Postcode:</strong> {{ event.postcode }}</p>
+    </div>
+    
+    <form method="POST" class="space-y-4">
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+        <input type="text" id="username" name="username" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+      </div>
+      
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+        <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+      </div>
+      
+      <div>
+        <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+      </div>
+      
+      <div>
+        <label for="attendance_type" class="block text-sm font-medium text-gray-700 mb-1">Attendance Type</label>
+        <select id="attendance_type" name="attendance_type" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+          <option value="">Select Attendance Type</option>
+          <option value="single-man">Single Man (£{{ event.men_price }})</option>
+          <option value="single-woman">Single Woman (£{{ event.women_price }})</option>
+          <option value="couple-mm">Couple MM (£{{ event.couple_mm_price }})</option>
+          <option value="couple-ff">Couple FF (£{{ event.couple_ff_price }})</option>
+          <option value="tv-ts-single">TV/TS Single (£{{ event.tv_ts_single_price }})</option>
+          <option value="tv-ts-married">TV/TS Married (£{{ event.tv_ts_married_price }})</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+        Check In
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
